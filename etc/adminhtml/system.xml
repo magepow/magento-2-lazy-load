@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!-- /**
+ * @Author: nguyen
+ * @Date:   2020-02-12 14:01:01
+ * @Last Modified by:   nguyen
+ * @Last Modified time: 2020-02-15 18:55:34
+ */ -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magepow" translate="label" sortOrder="86">
+            <label>Magepow</label>
+        </tab>
+        <section id="lazyload" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Lazy Load</label>
+            <tab>magepow</tab>
+            <resource>Magepow_Lazyload::config_lazyload</resource>
+            <group id="general" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="loading_body" translate="label comment" type="select" sortOrder="0"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Preloading Body</label>
+                    <comment>Preloading body site </comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="loading_img" translate="label comment" type="select" sortOrder="10"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Preloading Images</label>
+                    <comment>Preloading Images </comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="placeholder" translate="label comment" type="select" sortOrder="15"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Placeholder Images</label>
+                    <comment>Placeholder help keep layout original while loading</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="regex_block" translate="label comment" type="textarea" sortOrder="20"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Regex Block</label>
+                    <comment>Regex Block HMTL you want add lazyload.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="lazy_ajax" translate="label comment" type="select" sortOrder="25"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Lazyload Images Response Ajax</label>
+                    <comment>Apply lazyload for Response Ajax</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="body_includes" translate="label comment" type="textarea" sortOrder="30"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Scripts and Style Sheets</label>
+                    <comment>This will be included before body closing tag in page HTML.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
