@@ -3,7 +3,7 @@
  * @Author: nguyen
  * @Date:   2020-02-12 14:01:01
  * @Last Modified by:   nguyen
- * @Last Modified time: 2020-02-25 13:57:37
+ * @Last Modified time: 2020-03-04 17:38:50
  */
 
 namespace Magepow\Lazyload\Plugin;
@@ -57,7 +57,7 @@ class LazyResponse
         $loadingBody = $this->helper->getLazyloadConfig('general/loading_body');
         if($loadingBody)  $bodyClass .= ' loading_body';
 
-        $this->addBodyClass($body, $bodyClass);
+        $body = $this->addBodyClass($body, $bodyClass);
 
         if(!$this->helper->getLazyloadConfig('general/loading_img')) return;        
 
@@ -76,7 +76,18 @@ class LazyResponse
 
     public function addBodyClass( $content, $class )
     {
-        return preg_replace( '/<body([^>]+?)class=[\'"]?([^\'"\s>]+)[\'"]?([^>]*)>/', sprintf( '<body${1}class="${2} %s"${3}>', $class ), $content );
+        // return preg_replace( '/<body([\s\S]*?)(?:class="(.*?)")([\s\S]*?)?([^>]*)>/', sprintf( '<body${1}class="%s ${2}"${3}>', $class ), $content );
+        return preg_replace_callback(
+            '/<body([\s\S]*?)(?:class="(.*?)")([\s\S]*?)?([^>]*)>/',
+            function($match) use ($class) {
+                if($match[2]){
+                    return $lazy = str_replace('class="', 'class="' . $class . ' ', $match[0]); 
+                }else {
+                    return str_replace('<body ', '<body class="' . $class . '" ', $match[0]);
+                }
+            },
+            $content
+        );  
     }
 
     public function addLazyload( $content, $placeholder=false, $start=0 )
