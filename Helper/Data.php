@@ -2,16 +2,14 @@
 /**
  * @Author: nguyen
  * @Date:   2020-02-12 14:01:01
- * @Last Modified by:   Alex Dong
- * @Last Modified time: 2020-03-15 15:38:55
+ * @Last Modified by:   nguyen
+ * @Last Modified time: 2020-03-15 18:51:36
  */
 
 namespace Magepow\Lazyload\Helper;
 
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
-    const CONFIG_MODULE = 'magepow_lazyload';
-
     /**
      * @var string
      */
@@ -28,8 +26,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     )
     {
         parent::__construct($context);
-        $this->pageConfig = $pageConfig;
-        $this->configModule = $this->getConfig(self::CONFIG_MODULE);
+        $this->pageConfig   = $pageConfig;
+        $this->configModule = $this->getConfig(strtolower($this->_getModuleName()));
     }
 
     public function getConfig($cfg='')
@@ -40,10 +38,19 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 
     public function getConfigModule($cfg='', $value=null)
     {
-        $config = explode('/', $cfg);
-        if( !$cfg ) $value = $this->configModule;
-        foreach ($config as $key) {
-            if(isset($value[$key])) $value = $value[$key]; 
+        $values = $this->configModule;
+        if( !$cfg ) return $values;
+        $config  = explode('/', $cfg);
+        $end     = count($config) - 1;
+        foreach ($config as $key => $vl) {
+            if( isset($values[$vl]) ){
+                if( $key == $end ) {
+                    $value = $values[$vl];
+                }else {
+                    $values = $values[$vl];
+                }
+            } 
+
         }
         return $value;
     }
