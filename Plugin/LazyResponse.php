@@ -2,8 +2,8 @@
 /**
  * @Author: nguyen
  * @Date:   2020-02-12 14:01:01
- * @Last Modified by:   nguyen
- * @Last Modified time: 2020-03-04 17:38:50
+ * @Last Modified by:   Alex Dong
+ * @Last Modified time: 2020-03-15 15:33:13
  */
 
 namespace Magepow\Lazyload\Plugin;
@@ -21,6 +21,8 @@ class LazyResponse
     public $content;
 
     public $isJson;
+
+    public $exclude = [];
 
     public $placeholder = 'data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22' . '$width' . '%22%20height%3D%22' . '$height' . '%22%20viewBox%3D%220%200%20225%20265%22%3E%3C%2Fsvg%3E';
 
@@ -41,9 +43,11 @@ class LazyResponse
      */
     public function beforeSendResponse(Http $response)
     {
+        if( !$this->helper->getConfigModule('general/enabled') ) return;
+
         if($this->request->isXmlHttpRequest()){
             /* request is ajax */
-            $lazyAjax = $this->helper->getLazyloadConfig('general/lazy_ajax');
+            $lazyAjax = $this->helper->getConfigModule('general/lazy_ajax');
             if( !$lazyAjax ) return;
             $contentType = $response->getHeader('Content-Type');
             if( $contentType && $contentType->getMediaType() == 'application/json' ) {
@@ -54,20 +58,27 @@ class LazyResponse
 
         $body = $response->getBody();
         $bodyClass = 'loading_img';
-        $loadingBody = $this->helper->getLazyloadConfig('general/loading_body');
+        $loadingBody = $this->helper->getConfigModule('general/loading_body');
         if($loadingBody)  $bodyClass .= ' loading_body';
 
         $body = $this->addBodyClass($body, $bodyClass);
 
-        if(!$this->helper->getLazyloadConfig('general/loading_img')) return;        
+        if(!$this->helper->getConfigModule('general/loading_img')) return;        
 
-        $placeholder = $this->helper->getLazyloadConfig('general/placeholder');
+        $exclude = $this->helper->getConfigModule('general/exclude_img');
+        // $exclude = 'product-image-photo';
+        if($exclude){
+            $exclude = str_replace(' ', '', $exclude);
+            $this->exclude = explode(',', $exclude);
+        }
+
+        $placeholder = $this->helper->getConfigModule('general/placeholder');
         // $placeholder = false;
-        $regex_block = $this->helper->getLazyloadConfig('general/regex_block');
+        $regex_block = $this->helper->getConfigModule('general/regex_block');
         // $regex_block = '';
         $body = $this->addLazyload($body, $placeholder, $regex_block );
 
-        $body_includes = $this->helper->getLazyloadConfig('general/body_includes');
+        $body_includes = $this->helper->getConfigModule('general/body_includes');
         if($body_includes) $body = $this->addToBottomBody($body, $body_includes);
 
         $response->setBody($body);
@@ -139,6 +150,13 @@ class LazyResponse
         return $content;
     }
 
+    public function isExclude($class)
+    {
+        if(is_string($class)) $class = explode(' ', $class);
+        $excludeExist = array_intersect($this->exclude, $class);
+        return !empty($excludeExist);
+    }
+
     public function addLazyloadImage($content, $placeholder)
     {
         if($this->isJson) return  $this->addLazyloadImageJson($content, $placeholder);
@@ -149,6 +167,9 @@ class LazyResponse
                 if(strpos($match[0], ' data-src="')) return $match[0];
 
                 if($match[1]){
+
+                    if( $this->isExclude($match[1]) ) return $match[0];
+
                     $lazy = str_replace(' class="', ' class="lazyload ', $match[0]); 
                 }else {
                     $lazy = str_replace('<img ', '<img class="lazyload" ', $match[0]);
@@ -173,6 +194,9 @@ class LazyResponse
                 if(strpos($match[0], ' data-src=\"')) return $match[0];
 
                 if($match[1]){
+                    
+                    if( $this->isExclude($match[1]) ) return $match[0];
+
                     $lazy = str_replace(' class=\"', ' class=\"lazyload ', $match[0]); 
                 }else {
                     $lazy = str_replace('<img ', '<img class=\"lazyload\" ', $match[0]);

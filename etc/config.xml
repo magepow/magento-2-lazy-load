@@ -7,10 +7,13 @@
  */ -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
 	<default>
-	    <lazyload>
+	    <magepow_lazyload>
             <general>
+                <enabled>1</enabled>
+                <loading_body>0</loading_body>
                 <loading_body>0</loading_body>
                 <loading_img>1</loading_img>
+                <exclude_img>loaded, notlazy</exclude_img>
                 <placeholder>1</placeholder>
                 <regex_block><![CDATA[<main id="maincontent"]]></regex_block>
                 <lazy_ajax>0</lazy_ajax>
@@ -26,6 +29,6 @@
                     </script>]]>
                 </body_includes>
             </general>
-        </lazyload>    
+        </magepow_lazyload>    
 	</default>
 </config>
