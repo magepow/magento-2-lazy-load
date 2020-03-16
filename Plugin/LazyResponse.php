@@ -3,7 +3,7 @@
  * @Author: nguyen
  * @Date:   2020-02-12 14:01:01
  * @Last Modified by:   Alex Dong
- * @Last Modified time: 2020-03-15 15:33:13
+ * @Last Modified time: 2020-03-15 21:48:38
  */
 
 namespace Magepow\Lazyload\Plugin;
@@ -223,10 +223,22 @@ class LazyResponse
         return $content;
     }
 
-    /* Add js to content */
-    public function addToBottomBody( $content, $script)
+    /* Insert to Top body */
+    public function addToTopBody( $content, $insert)
     {
-        $content = str_ireplace('</body', $script . '</body', $content);
+        return $content = preg_replace_callback(
+            '/<body([\s\S]*?)?([^>]*)>/',
+            function($match) use ($insert) {
+                return $match[0] . $insert;
+            },
+            $content
+        );      
+    }
+
+    /* Insert to Bottom body */
+    public function addToBottomBody( $content, $insert)
+    {
+        $content = str_ireplace('</body>', $insert . '</body>', $content);
         return $content;         
     }
 
