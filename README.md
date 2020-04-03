@@ -4,21 +4,23 @@ Lazy Load extension for Magento 2 allows you to enhance your page speed loading 
 
 Aside from the normal functions of Lazy Load extension, we have improved it by some settings in the Admin Panel that can help you much in control, manage, and get the best result such as Pre-loading body, pre-loading image, use exclude images class, regex block, set apply Lazy Load for ajax or not,... Also, the extension is very easy to customize fits your needs.
 
+![lazyload-img](https://github.com/magepow/magento2-lazyload/blob/master/media/backend.png)
+
 ## Highlight Features
-### 1. Easy to Enable/Disable the extension in the Admin Panel
-### 2. Allow using the Pre-loading body site and upload an image/icon for the Pre-loading body site. Customer will not see the whole site loading in the first look.
-### 2. Allow using Pre-loading images to enhance speed loading. 
-### 3. Allow you to exclude some parts on the page that you don't want to apply the Lazy Load such as top banner, header,...by using the Exclude Image class field.
-### 4. Placeholder images feature will help you keep the website layout (frame) while the images have not loaded completely
-### 5. Regex Block: Enter the place that you want to use lazy load from that place to footer by using id or class of block. For example, this will be good for people want to keep the first content such as slider, header... not effected by the Lazy load
-### 6. Lazyload Images Response Ajax: Allow you to apply the Lazy Load for ajax or not
+#### 1. Easy to Enable/Disable the extension in the Admin Panel
+#### 2. Allow using the Pre-loading body site and upload an image/icon for the Pre-loading body site. Customer will not see the whole site loading in the first look.
+#### 2. Allow using Pre-loading images to enhance speed loading. 
+#### 3. Allow you to exclude some parts on the page that you don't want to apply the Lazy Load such as top banner, header,...by using the Exclude Image class field.
+#### 4. Placeholder images feature will help you keep the website layout (frame) while the images have not loaded completely
+#### 5. Regex Block: Enter the place that you want to use lazy load from that place to footer by using id or class of block. For example, this will be good for people want to keep the first content such as slider, header... not effected by the Lazy load
+#### 6. Lazyload Images Response Ajax: Allow you to apply the Lazy Load for ajax or not
 Customize the Lazy Load: use particular scripts or style fit your needs in Scripts and Style Sheets field
 
 ## Look In Frontend
 
-![lazyload-img](https://github.com/magepow/magento2-ajax-contact/blob/master/media/loadingbody.png)
+![lazyload-img](https://github.com/magepow/magento2-lazyload/blob/master/media/loadingbody.png)
 
-![lazyload-img](https://github.com/magepow/magento2-ajax-contact/blob/master/media/preloadingimg.png)
+![lazyload-img](https://github.com/magepow/magento2-lazyload/blob/master/media/preloadingimg.png)
 
 ## Lazy Load Extension Detail User Guide
 * [Document](https://docs.alothemes.com/m2/extension/lazyload/)
