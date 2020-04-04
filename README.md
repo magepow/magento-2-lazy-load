@@ -4,6 +4,16 @@ Lazy Load extension for Magento 2 allows you to enhance your page speed loading 
 
 Aside from the normal functions of Lazy Load extension, we have improved it by some settings in the Admin Panel that can help you much in control, manage, and get the best result such as Pre-loading body, pre-loading image, use exclude images class, regex block, set apply Lazy Load for ajax or not,... Also, the extension is very easy to customize fits your needs.
 
+## How to install Magento 2 Lazy Load
+### ✓ Install Magepow Lazyload via composer (recommend)
+Run the following command in Magento 2 root folder:
+
+`composer require magepow/lazyload`
+
+`php bin/magento setup:upgrade`
+
+`php bin/magento setup:static-content:deploy -f`
+
 ![lazyload-img](https://github.com/magepow/magento2-lazyload/blob/master/media/configuration.png)
 
 ## Highlight Features
