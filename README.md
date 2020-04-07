@@ -24,7 +24,7 @@ Run the following command in Magento 2 root folder:
 #### 4. Placeholder images feature will help you keep the website layout (frame) while the images have not loaded completely
 #### 5. Regex Block: Enter the place that you want to use lazy load from that place to footer by using id or class of block. For example, this will be good for people want to keep the first content such as slider, header... not effected by the Lazy load
 #### 6. Lazyload Images Response Ajax: Allow you to apply the Lazy Load for ajax or not
-Customize the Lazy Load: use particular scripts or style fit your needs in Scripts and Style Sheets field
+#### 7. Customize the Lazy Load: use particular scripts or style fit your needs in Scripts and Style Sheets field
 
 ## Look In Frontend
 
