@@ -21,7 +21,11 @@
                         require(["jquery", "magepow/lazyload", "domReady!"], function($, lazyload){
                         var imgLazy = $('img.lazyload').not(".loaded"); 
                         imgLazy.lazyload(); 
-                        imgLazy.on('load',function(){$(this).addClass('loaded');
+                        imgLazy.on('load',function(){
+                            var img = $(this);
+                            if(img.attr('src') == img.data('src')){img.addClass('loaded');}
+                            if($.equalheight) $.fn.equalheight();
+                        });
                         if($.equalheight) $.fn.equalheight();});
                         $('body').on('contentUpdated', function () {$(this).find("img.lazyload").not(".loaded").lazyload();});
                         }); 
