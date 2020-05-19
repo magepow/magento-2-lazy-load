@@ -3,7 +3,7 @@
  * @Author: nguyen
  * @Date:   2020-02-12 14:01:01
  * @Last Modified by:   Alex Dong
- * @Last Modified time: 2020-03-20 10:20:28
+ * @Last Modified time: 2020-05-14 10:00:26
  */
 
 namespace Magepow\Lazyload\Plugin;
@@ -166,10 +166,8 @@ class LazyResponse
 
                 if(stripos($match[0], ' data-src="') !== false) return $match[0];
 
-                if($match[1]){
-
+                if(stripos($match[0], ' class="') !== false){
                     if( $this->isExclude($match[1]) ) return $match[0];
-
                     $lazy = str_replace(' class="', ' class="lazyload ', $match[0]); 
                 }else {
                     $lazy = str_replace('<img ', '<img class="lazyload" ', $match[0]);
@@ -193,10 +191,8 @@ class LazyResponse
                 
                 if(stripos($match[0], ' data-src=\"') !== false) return $match[0];
 
-                if($match[1]){
-                    
+                if(stripos($match[0], ' class="') !== false){
                     if( $this->isExclude($match[1]) ) return $match[0];
-
                     $lazy = str_replace(' class=\"', ' class=\"lazyload ', $match[0]); 
                 }else {
                     $lazy = str_replace('<img ', '<img class=\"lazyload\" ', $match[0]);
