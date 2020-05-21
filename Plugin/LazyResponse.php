@@ -3,7 +3,7 @@
  * @Author: nguyen
  * @Date:   2020-02-12 14:01:01
  * @Last Modified by:   Alex Dong
- * @Last Modified time: 2020-05-14 10:00:26
+ * @Last Modified time: 2020-05-21 15:12:08
  */
 
 namespace Magepow\Lazyload\Plugin;
@@ -14,17 +14,19 @@ use Magepow\Lazyload\Helper\Data;
 
 class LazyResponse
 {
-    public $request;
+    protected $request;
 
-    public $helper;
+    protected $helper;
 
-    public $content;
+    protected $content;
 
-    public $isJson;
+    protected $isJson;
 
-    public $exclude = [];
+    protected $exclude = [];
 
-    public $placeholder = 'data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22' . '$width' . '%22%20height%3D%22' . '$height' . '%22%20viewBox%3D%220%200%20225%20265%22%3E%3C%2Fsvg%3E';
+    protected $scripts = [];
+
+    protected $placeholder = 'data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22' . '$width' . '%22%20height%3D%22' . '$height' . '%22%20viewBox%3D%220%200%20225%20265%22%3E%3C%2Fsvg%3E';
 
     public function __construct(
         RequestInterface $request,
@@ -65,6 +67,8 @@ class LazyResponse
 
         if(!$this->helper->getConfigModule('general/loading_img')) return;        
 
+        $body = $this->processExcludeJs($body);
+
         $exclude = $this->helper->getConfigModule('general/exclude_img');
         // $exclude = 'product-image-photo';
         if($exclude){
@@ -77,6 +81,19 @@ class LazyResponse
         $regex_block = $this->helper->getConfigModule('general/regex_block');
         // $regex_block = '';
         $body = $this->addLazyload($body, $placeholder, $regex_block );
+
+        $body = preg_replace_callback(
+            '~<\s*\bscript\b[^>]*>(.*?)<\s*\/\s*script\s*>~is',
+            function($match){
+                $scriptId = trim($match[1], ' ');
+                if($scriptId && isset($this->scripts[$scriptId])){
+                    return $this->scripts[$scriptId];
+                }else {
+                    return $match[0];
+                }
+            },
+            $body
+        );
 
         $body_includes = $this->helper->getConfigModule('general/body_includes');
         if($body_includes) $body = $this->addToBottomBody($body, $body_includes);
@@ -155,6 +172,42 @@ class LazyResponse
         if(is_string($class)) $class = explode(' ', $class);
         $excludeExist = array_intersect($this->exclude, $class);
         return !empty($excludeExist);
+    }
+
+    public function processExcludeJs($content, $minify=false, $deferJs=false)
+    {
+        $content = preg_replace_callback(
+            '~<\s*\bscript\b[^>]*>(.*?)<\s*\/\s*script\s*>~is',
+            function($match) use($minify, $deferJs){
+                // if(stripos($match[0], 'type="text/x-magento') !== false) return $match[0];
+                $scriptId = 'script_' . uniqid();
+                if ($minify && trim($match[1], ' ')){
+                    $this->scripts[$scriptId] =  $this->minifyJs( $match[0] );
+                }else {
+                    $this->scripts[$scriptId] = $match[0];
+                }
+                if (!$deferJs) return '<script>' . $scriptId . '</script>';
+                return '';
+            },
+            $content
+        );
+
+        return $content;
+    }
+
+    public function minifyJs($script)
+    {
+        $regex   = '~//?\s*\*[\s\S]*?\*\s*//?~'; // RegEx to remove /** */ and // ** **// php comments
+        $search = array(
+            '/(?:(?:\/\*(?:[^*]|(?:\*+[^*\/]))*\*+\/)|(?:(?<!\:|\\\|\')\/\/.*))/',
+            '/(\s)+/s',         // shorten multiple whitespace sequences
+        );
+
+        $replace = array(
+            '',
+            '\\1',
+        );
+        return preg_replace($search, $replace, $script);    
     }
 
     public function addLazyloadImage($content, $placeholder)
