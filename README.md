@@ -8,11 +8,11 @@ Aside from the normal functions of Lazy Load extension, we have improved it by s
 ### ✓ Install Magepow Lazyload via composer (recommend)
 Run the following command in Magento 2 root folder:
 
-`composer require magepow/lazyload`
-
-`php bin/magento setup:upgrade`
-
-`php bin/magento setup:static-content:deploy -f`
+```
+composer require magepow/lazyload
+php bin/magento setup:upgrade
+php bin/magento setup:static-content:deploy -f
+```
 
 ![lazyload-img](https://github.com/magepow/magento2-lazyload/blob/master/media/configuration.png)
 
@@ -34,6 +34,13 @@ Run the following command in Magento 2 root folder:
 
 ## Lazy Load Extension Detail User Guide
 * [Document](https://docs.alothemes.com/m2/extension/lazyload/)
+
+## Donation
+
+If this project help you reduce time to develop, you can give me a cup of coffee :) 
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/paypalme/alopay)
+
 
 **Free Extensions List**
 
