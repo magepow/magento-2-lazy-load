@@ -1,4 +1,4 @@
-# Lazy Load Extension for Magento 2
+# Lazy Load Images Extension for Magento 2
 
 Lazy Load extension for Magento 2 allows you to enhance your page speed loading and improve your website performance too. With this extension, the product images, banners, sliders will be loaded by demands. For example, when a customer or visitor scrolls the mouse or goes down to the page, the images/banners/sliders will be loaded when they are visible.
 
