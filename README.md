@@ -16,8 +16,9 @@ Lazy Load extension is the perfect solution to optimize your Magento website:
 
 - Improve website rankings on search engines
 
-See more detailed introduction, documment, demo frontend, demo backend: 
-* [Magento 2 Lazy Load](https://magepow.com/magento-2-extensions.html)
+### See more detailed introduction, documment, demo frontend, demo backend: 
+
+[Magento 2 Lazy Load](https://magepow.com/magento-2-extensions.html)
 
 [![Latest Stable Version](https://poser.pugx.org/magepow/lazyload/v/stable)](https://packagist.org/packages/magepow/lazyload)
 [![Total Downloads](https://poser.pugx.org/magepow/lazyload/downloads)](https://packagist.org/packages/magepow/lazyload)
