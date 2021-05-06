@@ -22,6 +22,7 @@ Lazy Load extension is the perfect solution to optimize your Magento website:
 
 [![Latest Stable Version](https://poser.pugx.org/magepow/lazyload/v/stable)](https://packagist.org/packages/magepow/lazyload)
 [![Total Downloads](https://poser.pugx.org/magepow/lazyload/downloads)](https://packagist.org/packages/magepow/lazyload)
+[![Daily Downloads](https://poser.pugx.org/magepow/lazyload/d/daily)](https://packagist.org/packages/magepow/lazyload)
 
 ### Genneral information
 
@@ -76,7 +77,7 @@ If this project help you reduce time to develop, you can give me a cup of coffee
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/paypalme/alopay)
 
 
-**Free Extensions List**
+**[Our Magento 2 Extensions](https://magepow.com/magento-2-extensions.html)**
 
 * [Magento 2 Recent Sales Notification](https://magepow.com/magento-2-recent-sales-notification.html)
 
@@ -88,10 +89,6 @@ If this project help you reduce time to develop, you can give me a cup of coffee
 
 * [Magento Lazy Load](https://magepow.com/magento-lazy-load.html)
 
-**Premium Extensions List**
-
-* [Magento Speed Optimizer](https://magepow.com/magento-speed-optimizer.html)
-
 * [Magento 2 Mutil Translate](https://magepow.com/magento-multi-translate.html)
 
 * [Magento 2 Instagram Integration](https://magepow.com/magento-2-instagram.html)
@@ -102,7 +99,7 @@ If this project help you reduce time to develop, you can give me a cup of coffee
 
 * [Magento Product Banner](https://magepow.com/magento-banner-slider.html)
 
-**Featured Magento services**
+**[Our Magento services](https://magepow.com/magento-services.html)**
 
 * [PSD to Magento 2 Theme Conversion](https://magepow.com/psd-to-magento-theme-conversion.html)
 
@@ -120,17 +117,19 @@ If this project help you reduce time to develop, you can give me a cup of coffee
 
 * [Hire Magento Developer](https://magepow.com/hire-magento-developer.html)
 
-**Featured Magento Themes**
+**[Our Magento Themes](https://alothemes.com/)**
 
-* [Expert Multipurpose responsive Magento 2 Theme](https://1.envato.market/c/1314680/275988/4415?u=https://themeforest.net/item/expert-premium-responsive-magento-2-and-1-support-rtl-magento-2-/21667789)
+* [Expert Multipurpose Responsive Magento 2 Theme](https://1.envato.market/c/1314680/275988/4415?u=https://themeforest.net/item/expert-premium-responsive-magento-2-and-1-support-rtl-magento-2-/21667789)
 
-* [Gecko Premium responsive Magento 2 Theme](https://1.envato.market/c/1314680/275988/4415?u=https://themeforest.net/item/gecko-responsive-magento-2-theme-rtl-supported/24677410)
+* [Gecko Premium Responsive Magento 2 Theme](https://1.envato.market/c/1314680/275988/4415?u=https://themeforest.net/item/gecko-responsive-magento-2-theme-rtl-supported/24677410)
 
-* [Milano Fashion responsive Magento 2 Theme](https://1.envato.market/c/1314680/275988/4415?u=https://themeforest.net/item/milano-fashion-responsive-magento-1-2-theme/12141971)
+* [Milano Fashion Responsive Magento 2 Theme](https://1.envato.market/c/1314680/275988/4415?u=https://themeforest.net/item/milano-fashion-responsive-magento-1-2-theme/12141971)
 
-* [Electro responsive Magento 2 Theme](https://1.envato.market/c/1314680/275988/4415?u=https://themeforest.net/item/electro-responsive-magento-1-2-theme/17042067)
+* [Electro 2 Responsive Magento 2 Theme](https://1.envato.market/c/1314680/275988/4415?u=https://themeforest.net/item/electro2-premium-responsive-magento-2-rtl-supported/26875864)
 
-* [Pizzaro food responsive Magento 2 Theme](https://1.envato.market/c/1314680/275988/4415?u=https://themeforest.net/item/pizzaro-food-responsive-magento-1-2-theme/19438157)
+* [Electro Responsive Magento 2 Theme](https://1.envato.market/c/1314680/275988/4415?u=https://themeforest.net/item/electro-responsive-magento-1-2-theme/17042067)
+
+* [Pizzaro Food responsive Magento 2 Theme](https://1.envato.market/c/1314680/275988/4415?u=https://themeforest.net/item/pizzaro-food-responsive-magento-1-2-theme/19438157)
 
 * [Biolife organic responsive Magento 2 Theme](https://1.envato.market/c/1314680/275988/4415?u=https://themeforest.net/item/biolife-organic-food-magento-2-theme-rtl-supported/25712510)
 
@@ -138,4 +137,6 @@ If this project help you reduce time to develop, you can give me a cup of coffee
 
 * [Kuteshop responsive Magento 2 Theme](https://1.envato.market/c/1314680/275988/4415?u=https://themeforest.net/item/kuteshop-multipurpose-responsive-magento-1-2-theme/12985435)
 
+* [Bencher - Responsive Magento 2 Theme](https://1.envato.market/c/1314680/275988/4415?u=https://themeforest.net/item/bencher-responsive-magento-1-2-theme/15787772)
 
+* [Supermarket Responsive Magento 2 Theme](https://1.envato.market/c/1314680/275988/4415?u=https://themeforest.net/item/supermarket-responsive-magento-1-2-theme/18447995)
