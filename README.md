@@ -2,7 +2,7 @@
 
 Images and products account for 70% of content on e-commerce websites. Reducing waiting time to load images makes the customer experience smoother, while also improving website performance.
 
-Lazy Load extension is the perfect solution to optimize your Magento website:
+[**Lazy Load extension by Magepow**](https://magepow.com/magento-2-lazy-load-extension.html) is the perfect solution to optimize your Magento website:
 
 - Speed up page loading
 
