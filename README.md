@@ -1,4 +1,4 @@
-## Magento 2 Lazy Load extension (Magepow_LazyLoad) 
+## Magento 2 Lazy Load Image extension (Magepow_LazyLoad) 
 
 Images and products account for 70% of content on e-commerce websites. Reducing waiting time to load images makes the customer experience smoother, while also improving website performance.
 
