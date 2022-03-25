@@ -18,7 +18,7 @@ Images and products account for 70% of content on e-commerce websites. Reducing 
 
 ### See more detailed introduction, documment, demo frontend, demo backend: 
 
-[Magento 2 Lazy Load](https://magepow.com/magento-2-extensions.html)
+[Magento 2 Lazy Load](https://magepow.com/magento-2-lazy-load-extension.html)
 
 [![Latest Stable Version](https://poser.pugx.org/magepow/lazyload/v/stable)](https://packagist.org/packages/magepow/lazyload)
 [![Total Downloads](https://poser.pugx.org/magepow/lazyload/downloads)](https://packagist.org/packages/magepow/lazyload)
