@@ -72,8 +72,8 @@ class LazyResponse
         $exclude = $this->helper->getConfigModule('general/exclude_img');
         // $exclude = 'product-image-photo';
         if($exclude){
-            $exclude = str_replace(' ', '', $exclude);
-            $this->exclude = explode(',', $exclude);
+            $exclude = str_replace(' ', '', (string) $exclude);
+            $this->exclude = explode(',', (string) $exclude);
         }
 
         $placeholder = $this->helper->getConfigModule('general/placeholder');
@@ -109,9 +109,9 @@ class LazyResponse
             '/<body([\s\S]*?)(?:class="(.*?)")([\s\S]*?)?([^>]*)>/',
             function($match) use ($class) {
                 if($match[2]){
-                    return $lazy = str_replace('class="', 'class="' . $class . ' ', $match[0]); 
+                    return $lazy = str_replace('class="', 'class="' . $class . ' ', (string) $match[0]); 
                 }else {
-                    return str_replace('<body ', '<body class="' . $class . '" ', $match[0]);
+                    return str_replace('<body ', '<body class="' . $class . '" ', (string) $match[0]);
                 }
             },
             $content
@@ -169,7 +169,7 @@ class LazyResponse
 
     public function isExclude($class)
     {
-        if(is_string($class)) $class = explode(' ', $class);
+        if(is_string($class)) $class = explode(' ', (string) $class);
         $excludeExist = array_intersect($this->exclude, $class);
         return !empty($excludeExist);
     }
@@ -221,15 +221,15 @@ class LazyResponse
 
                 if(stripos($match[0], ' class="') !== false){
                     if( $this->isExclude($match[1]) ) return $match[0];
-                    $lazy = str_replace(' class="', ' class="lazyload ', $match[0]); 
+                    $lazy = str_replace(' class="', ' class="lazyload ', (string) $match[0]); 
                 }else {
-                    $lazy = str_replace('<img ', '<img class="lazyload" ', $match[0]);
+                    $lazy = str_replace('<img ', '<img class="lazyload" ', (string) $match[0]);
                 }
 
                 /* break if exist data-src */
                 // if(strpos($lazy, ' data-src="')) return $lazy;
 
-                return str_replace(' src="', ' src="' .$placeholder. '" data-src="', $lazy);
+                return str_replace(' src="', ' src="' .$placeholder. '" data-src="', (string) $lazy);
             },
             $content
         );        
@@ -246,15 +246,15 @@ class LazyResponse
 
                 if(stripos($match[0], ' class="') !== false){
                     if( $this->isExclude($match[1]) ) return $match[0];
-                    $lazy = str_replace(' class=\"', ' class=\"lazyload ', $match[0]); 
+                    $lazy = str_replace(' class=\"', ' class=\"lazyload ', (string) $match[0]); 
                 }else {
-                    $lazy = str_replace('<img ', '<img class=\"lazyload\" ', $match[0]);
+                    $lazy = str_replace('<img ', '<img class=\"lazyload\" ', (string) $match[0]);
                 }
 
                 /* break if exist data-src */
                 // if(strpos($lazy, ' data-src=\"')) return $lazy;
 
-                return str_replace(' src=\"', ' src=\"' . $placeholder . '\" data-src=\"', $lazy);
+                return str_replace(' src=\"', ' src=\"' . $placeholder . '\" data-src=\"', (string) $lazy);
             },
             $content
         );        
@@ -263,7 +263,7 @@ class LazyResponse
     /* Not Placeholder so can't keep layout original while loading */
     public function addLazyloadAll( $content, $addJs=false ) 
     {
-        $placeholder = str_replace(['$width', '$height'], [1, 1], $this->placeholder);
+        $placeholder = str_replace(['$width', '$height'], [1, 1], (string) $this->placeholder);
 
         $content = $this->addLazyloadImage($content, $placeholder);
 
