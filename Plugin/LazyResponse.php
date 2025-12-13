@@ -45,7 +45,13 @@ class LazyResponse
      */
     public function beforeSendResponse(Http $response)
     {
-        if( !$this->helper->getConfigModule('general/enabled') ) return;
+        if( !$this->helper->getConfigModule('general/enabled') 
+            || $this->request->getFullActionName() == 'checkout_index_index'
+            || $this->request->getFullActionName() == 'firecheckout_index_index'
+            || $this->request->getFullActionName() == 'onestepcheckout_index_index'
+            || $this->request->getFullActionName() == 'mageworx_checkout_index_index'
+
+        ) return;
 
         if($this->request->isXmlHttpRequest()){
             /* request is ajax */
